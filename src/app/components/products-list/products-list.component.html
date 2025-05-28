@@ -1,0 +1,14 @@
+<div class="container">
+    @if (errorMessage) {
+<div class="error"> {{errorMessage}}</div>
+    }@else if (!errorMessage) {
+        @for (product of Products; track $index) {
+            <div >
+                <h3>{{product.title}}</h3>
+            </div>
+            <p>{{product.body}}</p>
+            <a href="">View Details</a>
+        }
+    }
+        
+</div>
