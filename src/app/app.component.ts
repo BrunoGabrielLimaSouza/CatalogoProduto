@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { ProductServiceService } from './service/product-service.service';
 import { ProductService } from './service/product.service';
 import { CommonModule } from '@angular/common';
 
@@ -11,12 +10,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   title = 'ListaProdutos';
 
-  constructor(productService: ProductService) {}
-
-  ngOnInit(): void {
-    this.productService.
-  }
+  
 }

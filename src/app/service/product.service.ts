@@ -5,8 +5,18 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 export interface Product{
   id: number;
-  title: String;
-  body: String;
+  image: string;
+  title: string;
+  body: string;
+  price: number;
+  description: string;
+  category: string;
+  rating: Rating;
+}
+
+interface Rating{
+  rate: number;
+  count: number;
 }
 
 @Injectable({
@@ -24,7 +34,7 @@ export class ProductService {
   }
 
   getProduct(id: number): Observable<Product>{
-    return this.http.get.<Product>(`${this.apiUrl}/${id}`).pipe(
+    return this.http.get<Product>(`${this.apiUrl}/${id}`).pipe(
       catchError(this.handleError)
     );
   }

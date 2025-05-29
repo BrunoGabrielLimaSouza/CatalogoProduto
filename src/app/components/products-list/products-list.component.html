@@ -1,14 +1,19 @@
 <div class="container">
-    @if (errorMessage) {
-<div class="error"> {{errorMessage}}</div>
-    }@else if (!errorMessage) {
-        @for (product of Products; track $index) {
-            <div >
-                <h3>{{product.title}}</h3>
-            </div>
-            <p>{{product.body}}</p>
-            <a href="">View Details</a>
-        }
-    }
-        
+  @if (errorMessage) {
+    <div class="error-message">
+      {{ errorMessage }}
+    </div>
+  } @else if (!errorMessage) {
+    <div class="product-grid">
+      @for (product of products; track $index) {
+        <div class="product-card">
+          <img [src]="product.image" alt={{product.title}}>
+          <h3>{{ product.title }}</h3>
+          <p class="product-price">{{product.price}}</p>
+
+          <a [routerLink]="['/product', product.id]" class="details-link">View Details</a>
+        </div>
+      }
+    </div>
+  }
 </div>
